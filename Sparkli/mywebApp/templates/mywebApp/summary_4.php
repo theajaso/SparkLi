@@ -63,9 +63,11 @@
       <div id="result-ans7" class="results-container"></div>
       
       <div id="category-scores"></div>
+      <div id="total-scores"></div>
+
+
 
       <input type="hidden" id="gradeLevel" name="grade_level" value="grade_4">
-      <div id="category-scores"></div>
 
 
     </div>

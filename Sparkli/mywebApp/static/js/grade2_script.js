@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var resultContainer3 = document.getElementById('result-ans3');
     var resultContainer4 = document.getElementById('result-ans4');
     var resultContainer5 = document.getElementById('result-ans5');
+    var totalScoreContainer = document.getElementById('total-scores');
     var categoryScoreContainer = document.getElementById('category-scores');
   
     resultContainer1.innerHTML = createResultHtml(results['results']['answ1']);
@@ -159,6 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
    
     var categoryScores = results['category_scores'];
+    var totalCorrectScores = results['total_correct_answers'];
+
   
     if (categoryScores) {
       categoryScoreContainer.innerHTML = `
@@ -171,6 +174,16 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     } else {
       categoryScoreContainer.innerHTML = '';
+    }
+    if (totalCorrectScores !== undefined) {
+      totalScoreContainer.innerHTML = `
+        <div class="total-scores">
+          <p>Total Scores: ${totalCorrectScores}</p>
+          <hr>
+        </div>
+      `;
+    } else {
+      totalScoreContainer.innerHTML = '';
     }
   }
   function createResultHtml(resultData) {

@@ -55,7 +55,10 @@
       <div style="font-size: large; margin-bottom: 20px" id="ans5"></div>
       <div id="result-ans5" class="results-container"></div>
       
+      <div class="total-scores" id="total-scores"></div>
+
       <div id="category-scores"></div>
+
 
 
       <input type="hidden" id="gradeLevel" name="grade_level" value="grade_3">

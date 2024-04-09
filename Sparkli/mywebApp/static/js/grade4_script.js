@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+  
   function displayResults(results) {
     var resultContainer1 = document.getElementById('result-ans1');
     var resultContainer2 = document.getElementById('result-ans2');
@@ -175,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var resultContainer6 = document.getElementById('result-ans6');
     var resultContainer7 = document.getElementById('result-ans7');
     var categoryScoreContainer = document.getElementById('category-scores');
+    var totalScoreContainer = document.getElementById('total-scores');
   
     resultContainer1.innerHTML = createResultHtml(results['results']['answ1']);
     resultContainer2.innerHTML = createResultHtml(results['results']['answ2']);
@@ -183,8 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
     resultContainer5.innerHTML = createResultHtml(results['results']['answ5']);
     resultContainer6.innerHTML = createResultHtml(results['results']['answ6']);
     resultContainer7.innerHTML = createResultHtml(results['results']['answ7']);
-   
+  
     var categoryScores = results['category_scores'];
+    var totalCorrectScores = results['total_correct_answers'];
   
     if (categoryScores) {
       categoryScoreContainer.innerHTML = `
@@ -198,7 +201,19 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       categoryScoreContainer.innerHTML = '';
     }
+  
+    if (totalCorrectScores !== undefined) {
+      totalScoreContainer.innerHTML = `
+        <div class="total-scores">
+          <p>Total Scores : ${totalCorrectScores}</p>
+          <hr>
+        </div>
+      `;
+    } else {
+      totalScoreContainer.innerHTML = '';
+    }
   }
+  
   function createResultHtml(resultData) {
     var resultDiv = document.createElement('div');
     resultDiv.classList.add('result-item');
@@ -212,12 +227,10 @@ document.addEventListener('DOMContentLoaded', function() {
     return resultDiv.outerHTML;
   }
   
-  
   document.getElementById("analyzeBtn").addEventListener("click", function() {
     this.disabled = true;  // Disable the button to prevent multiple clicks
     analyzeAnswers();
   });
-  
   
   function getCookie(name) {
     var cookieValue = null;

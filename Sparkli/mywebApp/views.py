@@ -339,8 +339,11 @@ def analyze_similarity(request):
                                 "result": result,
                             }
 
+           
             # Calculate category and total scores
             total_score, category_scores = calculate_total_score(comparison_results, user_answers["grade_level"])
+
+            total_correct_answers = sum(1 for result in comparison_results.values() if result['result'] == 'Correct')
 
             # Prepare the category scores data
             category_scores_data = {
@@ -360,22 +363,23 @@ def analyze_similarity(request):
                     "total": len(category_scores["applied"]),
                 },
             }
-
+            
+            print("Total ", total_correct_answers)
+            
             # Now we have all the data, return the JSON response
             return JsonResponse(
                 {
                     "results": comparison_results,
-                    "total_score": total_score,
+                    "total_correct_answers": total_correct_answers,  # Include total_correct_answers
                     "category_scores": category_scores_data,
                 }
             )
-
+            
         except Exception as e:
             print("Error:", e)
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
-
 def calculate_total_score(comparison_results, grade_level):
     category_scores = {
         'literal': [],

@@ -144,11 +144,13 @@ function analyzeAnswers() {
   });
 }
 function displayResults(results) {
+  console.log('Results:', results);
   var resultContainer1 = document.getElementById('result-ans1');
   var resultContainer2 = document.getElementById('result-ans2');
   var resultContainer3 = document.getElementById('result-ans3');
   var resultContainer4 = document.getElementById('result-ans4');
   var resultContainer5 = document.getElementById('result-ans5');
+  var totalScoreContainer = document.getElementById('total-scores');
   var categoryScoreContainer = document.getElementById('category-scores');
 
   resultContainer1.innerHTML = createResultHtml(results['results']['answ1']);
@@ -157,8 +159,8 @@ function displayResults(results) {
   resultContainer4.innerHTML = createResultHtml(results['results']['answ4']);
   resultContainer5.innerHTML = createResultHtml(results['results']['answ5']);
 
- 
   var categoryScores = results['category_scores'];
+  var totalCorrectScores = results['total_correct_answers'];
 
   if (categoryScores) {
     categoryScoreContainer.innerHTML = `
@@ -172,7 +174,19 @@ function displayResults(results) {
   } else {
     categoryScoreContainer.innerHTML = '';
   }
+
+  if (totalCorrectScores !== undefined) {
+    totalScoreContainer.innerHTML = `
+      <div class="total-scores">
+        <p>Total Scores: ${totalCorrectScores}</p>
+        <hr>
+      </div>
+    `;
+  } else {
+    totalScoreContainer.innerHTML = '';
+  }
 }
+
 function createResultHtml(resultData) {
   var resultDiv = document.createElement('div');
   resultDiv.classList.add('result-item');
@@ -186,12 +200,10 @@ function createResultHtml(resultData) {
   return resultDiv.outerHTML;
 }
 
-
 document.getElementById("analyzeBtn").addEventListener("click", function() {
   this.disabled = true;  // Disable the button to prevent multiple clicks
   analyzeAnswers();
 });
-
 
 function getCookie(name) {
   var cookieValue = null;

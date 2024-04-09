@@ -56,6 +56,8 @@
 
       <input type="hidden" id="gradeLevel" name="grade_level" value="grade_2">
       <div id="category-scores"></div>
+      <div id="total-scores"></div>
+
 
 
     </div>
