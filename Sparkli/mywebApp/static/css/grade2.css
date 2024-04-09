@@ -1,0 +1,44 @@
+  body.background8{
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFBDA;
+  }
+        
+  .button6 {
+    margin-right: 80px;
+    padding: 15px 60px;
+    background-color: #FFDE59;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: large;
+    font-family: 'Comic Sans';
+    text-decoration: none; /* Remove default underline */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  .button6:hover {
+    background-color: #b4a92c; /* Darker green on hover */
+  }
+
+
+  .button7 {
+    margin-right: 80px;
+    padding: 15px 60px;
+    background-color: #FFDE59;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: large;
+    font-family: 'Comic Sans';
+    text-decoration: none; /* Remove default underline */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  .button7:hover {
+    background-color: #b4a92c; /* Darker green on hover */
+  }

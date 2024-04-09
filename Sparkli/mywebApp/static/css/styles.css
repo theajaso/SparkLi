@@ -1,0 +1,425 @@
+/* default  */
+
+.logo {
+  width: 250px;
+  margin: 0px;
+}
+
+.circle-button {
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-size: contain;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.logo-container {
+  margin-right: auto; 
+}
+
+
+/*              page 14                  */
+  body.background2 {
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-image: linear-gradient(white, #ffffff, #c2e6bb);
+  }
+  
+  .header1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: auto;
+    font-family: 'Comic Sans';
+  }
+  
+  .content1 {
+    text-align: center;
+    margin: 20px;
+    margin-bottom: auto;
+    font-family: 'Comic Sans';
+
+  }
+  
+  .feedbackbox {
+    margin-top: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    padding: 130px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    background-color: white;
+
+  }
+  .button-container1 {
+    position: relative;
+    position: fixed;
+    bottom: 20px;
+    right: 100px; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+  .button1 {
+    margin-right: 10px;
+    padding: 15px 80px;
+    background-color: #FED550;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: medium;
+    z-index: 0; 
+  }
+
+  .mindbloom{
+    position: absolute;
+    bottom: 0px;
+    left: -10px;
+    height: 100px;
+    width: 80px;
+    background-size: cover;
+    z-index: 1; 
+    
+  }
+  
+  .button2 {
+    margin-right: 10px;
+    padding: 15px 50px;
+    background-color: #D9D9D9;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: medium;
+  }
+  
+
+  /*              grade 3 - Pre-Test         */
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: auto;
+    background-color: white;
+  }
+
+  
+  .header-text{
+    display: flex;
+    align-items: center;
+    margin-right: 100px; /* Add margin to the right side */
+   
+  }
+  
+
+  .header-text p {
+    font-family: 'BryndanWriteBook';
+    font-size: xx-large;
+    margin: 0;
+  }
+  
+
+  .button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 50px; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+
+  .content2{
+    position: relative;
+    margin-top: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    padding: 50px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: white;
+    font-family: 'Comic Sans';
+    font-size:x-large;
+
+  }
+  .mic{
+    position: absolute;
+    bottom: 20px;
+    right: 20px; 
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+  }
+
+
+  /* grade 3 - Questionaires*/
+  
+  .box-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .box {
+    position: relative;
+    width: 320px;
+    height: 330px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .number {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-right: 10px;
+    top: 15px;
+    left: 20px;
+  }
+  
+  .answers {
+    position: absolute;
+    width: 250px;
+    height: 180px;
+    margin: 50px;
+    display: flex;
+    bottom: 30px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: large;
+    background-color: white;
+    color: gray;
+    text-align: center; 
+    border: none;
+  }
+
+  .stt_btn{
+    position: absolute;
+    width: 30px;
+    height: 30px; 
+    bottom: 20px;
+    right: 15px; 
+    background-position: center;
+    cursor: pointer;
+    border-radius: 50%; 
+    transition: background-color 0.3s ease; 
+    background-size: contain
+  }
+
+  
+  /* Questionaire 4-5 */
+  
+  .box-container1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .box1 {
+    position: relative;
+    width: 450px;
+    height: 350px;
+    margin: 60px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: x-large;
+    align-content: center;
+    padding-top: 55px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  .number1 {
+    position: absolute;
+    border: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-right: 10px; 
+    top: 15px;
+    left: 20px;
+  }
+  
+  .answers1 {
+    position: absolute;
+    width: 320px;
+    height: 200px;
+    margin: 50px;
+    display: flex;
+    bottom: 55px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: larger;
+    border: none;
+    text-align: center;
+  }
+  
+
+/* Styling for recording indicator */
+.recording {
+    background-color: #ff0000; /* Red background for recording */
+}
+/* Styling for btn1 */
+.btn1 {
+  height: 30px;
+  width: 30px;
+  border: 80px solid #ccc;
+  border-radius: 50px;
+}
+
+/* Styling for btn2 */
+.btn2 {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+/* Styling for btn3 */
+.btn3 {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+/* Hover effect for all buttons */
+.stt_btn:hover {
+    background-color: #f0f0f0;
+}
+ 
+
+.active-mic {
+  background-color: #ff0000; 
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* summary */
+
+.content3 {
+  text-align: center;
+  margin: 10px;
+  font-family: 'Comic Sans';
+
+
+}
+
+.summary {
+  margin: 0 auto; 
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  background-color: white;
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 50px;
+  max-width: 1000px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+
+.result-container {
+  margin-top: 20px;
+}
+
+.result-item {
+  margin-bottom: 20px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.analyzebtn,
+.donebtn {
+  margin-right: 10px;
+  padding: 15px 70px; /* Adjusted padding for both buttons */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: large;
+  font-family: 'Comic Sans', sans-serif;
+  z-index: 0;
+}
+
+.analyzebtn {
+  background-color: #FED550;
+  color: black;
+}
+
+.donebtn {
+  background-color: #45a834;
+  color: white;
+  text-decoration: none; /* Remove default underline */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.donebtn:hover {
+  background-color: #3c8720; /* Darker green on hover */
+}
