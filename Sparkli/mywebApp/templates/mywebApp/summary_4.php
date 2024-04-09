@@ -23,7 +23,7 @@
 </head>
 
 <body class="background2">
-  <header class="bg2">
+  <header class="header1">
     <a href="{% url 'grade3_questionaires2' %}" class="circle-button"
       style="background-image: url('{% static 'images/back_button.png' %}');"></a>
     <img src="{% static 'images/sparkli_Logo.png' %}" alt="Logo" class="logo">

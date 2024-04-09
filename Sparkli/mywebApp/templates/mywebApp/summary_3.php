@@ -55,9 +55,10 @@
       <div style="font-size: large; margin-bottom: 20px" id="ans5"></div>
       <div id="result-ans5" class="results-container"></div>
       
-      <div class="total-scores" id="total-scores"></div>
 
       <div id="category-scores"></div>
+      <div id="total-scores"></div>
+
 
 
 
@@ -70,7 +71,7 @@
     <div class="button-container1">
       <button  class="analyzebtn" onclick="analyzeAnswers()">Check</button>
       
-      <a href="{% url 'grade4_pretest' %}"  class="donebtn">Analyze</a>
+      <a href="{% url 'grade4_pretest' %}"  class="donebtn">Done</a>
 
     </div>
   

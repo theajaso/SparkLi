@@ -340,12 +340,10 @@ def analyze_similarity(request):
                             }
 
            
-            # Calculate category and total scores
             total_score, category_scores = calculate_total_score(comparison_results, user_answers["grade_level"])
 
             total_correct_answers = sum(1 for result in comparison_results.values() if result['result'] == 'Correct')
 
-            # Prepare the category scores data
             category_scores_data = {
                 "literal": {
                     "score": total_score["literal"],
@@ -364,9 +362,7 @@ def analyze_similarity(request):
                 },
             }
             
-            print("Total ", total_correct_answers)
             
-            # Now we have all the data, return the JSON response
             return JsonResponse(
                 {
                     "results": comparison_results,

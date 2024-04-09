@@ -192,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (categoryScores) {
       categoryScoreContainer.innerHTML = `
         <div class="category-scores">
+        <strong> Category Scores<strong>
           <p>Literal Score: ${categoryScores['literal'].score}% (${categoryScores['literal'].correct} out of ${categoryScores['literal'].total})</p>
           <p>Interpretative Score: ${categoryScores['interpretative'].score}% (${categoryScores['interpretative'].correct} out of ${categoryScores['interpretative'].total})</p>
           <p>Applied Score: ${categoryScores['applied'].score}% (${categoryScores['applied'].correct} out of ${categoryScores['applied'].total})</p>
