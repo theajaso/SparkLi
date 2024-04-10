@@ -135,19 +135,22 @@ def analyze_similarity(request):
 
                             word_embeddings_similarity = user_doc.similarity(expected_doc)
                             tokenization_ratio = fuzz.token_sort_ratio(user_answer, ','.join(expected_answer).lower()) / 100.0
+                            cosine_similarity = user_doc.vector.dot(expected_doc.vector) / (user_doc.vector_norm * expected_doc.vector_norm)
                             contextual_embeddings_similarity = user_doc.similarity(expected_doc)
 
 
                             combined_similarity = (
-                                0.4 * tokenization_ratio +
-                                0.3 * word_embeddings_similarity +
-                                0.3 * contextual_embeddings_similarity
+                                0.3 * tokenization_ratio +
+                                0.2 * word_embeddings_similarity +
+                                0.3 * cosine_similarity +
+                                0.2 * contextual_embeddings_similarity
                             )
 
                             print(f"Metrics for {key}:")
                             print(f"Answer: {user_answer}")
                             print(f"Word Embeddings Similarity: {word_embeddings_similarity}")
                             print(f"Tokenization Ratio: {tokenization_ratio}")
+                            print(f"Cosine Similarity", cosine_similarity)
                             print(f"Combined Similarity: {combined_similarity}")
 
                             result = "Correct" if combined_similarity >= 0.7 else "Incorrect"
@@ -240,19 +243,23 @@ def analyze_similarity(request):
 
                             word_embeddings_similarity = user_doc.similarity(expected_doc)
                             tokenization_ratio = fuzz.token_sort_ratio(user_answer, ','.join(expected_answer).lower()) / 100.0
+                            cosine_similarity = user_doc.vector.dot(expected_doc.vector) / (user_doc.vector_norm * expected_doc.vector_norm)
                             contextual_embeddings_similarity = user_doc.similarity(expected_doc)
+                            
 
 
                             combined_similarity = (
-                                0.4 * tokenization_ratio +
-                                0.3 * word_embeddings_similarity +
-                                0.3 * contextual_embeddings_similarity
+                                0.3 * tokenization_ratio +
+                                0.2 * word_embeddings_similarity +
+                                0.3 * cosine_similarity +
+                                0.2 * contextual_embeddings_similarity
                             )
 
                             print(f"Metrics for {key}:")
                             print(f"Answer: {user_answer}")
                             print(f"Word Embeddings Similarity: {word_embeddings_similarity}")
                             print(f"Tokenization Ratio: {tokenization_ratio}")
+                            print(f"Cosine Similarity", cosine_similarity)
                             print(f"Combined Similarity: {combined_similarity}")
 
                             result = "Correct" if combined_similarity >= 0.7 else "Incorrect"
