@@ -37,9 +37,11 @@
 
   <div class="box-container1">
     <div class="box1" style="background-color: #FFF2E1;">What should you do when <br>  you are invited?
-      <div class="stt_btn" id="btn7" style="background-image: url('{% static 'images/microphone.png' %}');" onclick="startSpeechToText('ans7','btn7' )"></div>
+      <div class="stt_btn" id="btn7" style="background-image: url('{% static 'images/microphone.png' %}');" 
+      onclick="startSpeechToText('ans7','btn7' )"></div>
     </div>
     <div class="number1" style="background-color: #FFF2E1;">7</div>
+    
     <input type="text" class="answers1" contenteditable="true" id="ans7" placeholder="Enter Answer Here...">
   </div>
 

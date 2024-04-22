@@ -4,6 +4,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from fuzzywuzzy import fuzz
 from .expected_answers import EXPECTED_ANSWERS
+import csv
+
+
 
 def page_14(request):
     context ={}
@@ -51,31 +54,51 @@ def summary_2 (request):
     return render(request, "mywebApp/summary_2.php")
 
 # Load SpaCy model
-# Load SpaCy model
 nlp = spacy.load('en_core_web_md')
 
+def load_answers_from_csv(file_path):
+    answers = {}
+    with open(file_path, "r", newline="") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            for key, value in row.items():
+                if key != 'Students': 
+                    if key not in answers:
+                        answers[key] = []
+                    answers[key].append(value)
+    return answers
 
+GRADE2_POST_ANSWERS = load_answers_from_csv("C:/Users/thea nicole/Desktop/SparkLi/SparkLi/mywebApp/data/grade2_post_answers.csv")
+GRADE3_PRE_ANSWERS = load_answers_from_csv("C:/Users/thea nicole/Desktop/SparkLi/SparkLi/mywebApp/data/grade3_pre_answers.csv")
+GRADE4_PRE_ANSWERS = load_answers_from_csv("C:/Users/thea nicole/Desktop/SparkLi/SparkLi/mywebApp/data/grade4_pre_answers.csv")
+
+def preprocess_string(text):
+    return text.replace(".", "").lower()
 
 @csrf_exempt
 def analyze_similarity(request):
     if request.method == "POST":
         try:
             user_answers = {
-                "answ1": request.POST.get("answ1", "").strip().lower(),
-                "answ2": request.POST.get("answ2", "").strip().lower(),
-                "answ3": request.POST.get("answ3", "").strip().lower(),
-                "answ4": request.POST.get("answ4", "").strip().lower(),
-                "answ5": request.POST.get("answ5", "").strip().lower(),
-                "answ6": request.POST.get("answ6", "").strip().lower(),
-                "answ7": request.POST.get("answ7", "").strip().lower(),
+                "answ1": preprocess_string(request.POST.get("answ1", "").strip()),
+                "answ2": preprocess_string(request.POST.get("answ2", "").strip()),
+                "answ3": preprocess_string(request.POST.get("answ3", "").strip()),
+                "answ4": preprocess_string(request.POST.get("answ4", "").strip()),
+                "answ5": preprocess_string(request.POST.get("answ5", "").strip()),
+                "answ6": preprocess_string(request.POST.get("answ6", "").strip()),
+                "answ7": preprocess_string(request.POST.get("answ7", "").strip()),
                 "grade_level": request.POST.get("grade_level", ""),
             }
-
+            
             print("Received answers:", user_answers)
-
-            expected_answers = EXPECTED_ANSWERS.get(user_answers["grade_level"], {})
-
-            if not expected_answers:
+            
+            if user_answers["grade_level"] == "grade_2":
+                expected_answers = GRADE2_POST_ANSWERS
+            elif user_answers["grade_level"] == "grade_3":
+                expected_answers = GRADE3_PRE_ANSWERS
+            elif user_answers["grade_level"] == "grade_4":
+                expected_answers = GRADE4_PRE_ANSWERS
+            else:
                 return JsonResponse({"error": "Invalid grade level"})
 
             comparison_results = {}
@@ -95,11 +118,9 @@ def analyze_similarity(request):
                         if key.startswith("answ1") or key.startswith("answ2") or key.startswith("answ3"):
                             max_similarity = 0
                             for item in expected_answer:
-    # Check if the item is not empty
                                 if item.strip():
-        # Split by commas to handle multiple expected answers within one item
                                     for expected_item in item.split(','):
-            # Process the expected and user answers with spaCy
+
                                         expected_doc = nlp(expected_item.lower())
                                         user_doc = nlp(user_answer)
 
@@ -406,6 +427,8 @@ def analyze_similarity(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
+
+
 def calculate_total_score(comparison_results, grade_level):
     category_scores = {
         'literal': [],
